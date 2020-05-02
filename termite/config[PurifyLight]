@@ -1,0 +1,58 @@
+## Termite Styling Program
+## Author : Aditya Shakya
+
+[options]
+allow_bold = true
+audible_bell = true
+browser = xdg-open
+clickable_url = true
+cursor_blink = system
+cursor_shape = block
+dynamic_title = true
+filter_unmatched_urls = true
+font =  SauceCodePro Nerd Font 11
+geometry = 480x280
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+highlight = #30343e
+
+[colors]
+cursor = #313440
+
+foreground = #313440
+foreground_bold = #313440
+background = #CECCC6
+
+highlight = #252834
+
+# Black
+color0  = #313440
+color8  = #313440
+# Red
+color1  = #FF6059
+color9  = #FF6059
+# Green
+color2  = #28703A
+color10 = #28703A
+# Yellow
+color3  = #FFFF87
+color11 = #FFFF87
+# Blue
+color4  = #274767
+color12 = #274767
+# Magenta
+color5  = #AF87FF
+color13 = #AF87FF
+# Cyan
+color6  = #5FAFFF
+color14 = #5FAFFF
+# White
+color7  = #D4D1C8
+color15 = #D4D1C8

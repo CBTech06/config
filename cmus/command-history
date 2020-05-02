@@ -1,0 +1,34 @@
+q
+update-cache 
+add
+colorscheme night
+colorscheme jellybeans
+colorscheme itunes-like
+colorscheme gruvbox-alt
+colorscheme gruvbox
+colorscheme green-mono-88
+colorscheme green
+colorscheme cyan
+colorscheme gray-88
+colorscheme dracula
+Q
+w
+wq
+colorscheme default
+v
+help
+refresh 
+update-cache -f
+update-cache f
+update cache -f
+update cache f
+y
+qy
+  bvn:l cxlshell lllllllomnipp
+colorscheme solarized-dark
+colorscheme  cyan
+save 
+bind common <key> save
+colorscheme zenburn
+colorscheme xterm-white
+colorscheme solarized-light

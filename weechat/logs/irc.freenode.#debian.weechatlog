@@ -1,0 +1,41 @@
+2020-01-24 22:19:16	-->	chris06 (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #debian
+2020-01-24 22:19:16	--	Topic for #debian is "Current Debian release is buster, 10.2 point release /msg dpkg 10.2; /msg dpkg buster; /msg dpkg stretch->buster; /msg dpkg apt suite changed | Oldstable Stretch: /msg dpkg stretch; /msg dpkg 9.11; 9.11 needs dist-upgrade | NO FLOOD: /msg dpkg paste | offtopic: #debian-offtopic | testing/unstable: #debian-next @ irc.oftc.net | chanlogs: /msg dpkg irclog"
+2020-01-24 22:19:16	--	Topic set by somiaj (~jaimos@unaffiliated/somiaj) on Tue, 19 Nov 2019 01:01:10
+2020-01-24 22:19:16	--	Channel #debian: 1541 nicks (2 ops, 0 voices, 1539 normals)
+2020-01-24 22:19:16	--	PvNotice(ChanServ): Welcome to #Debian. This is a discussion channel; if you have a question about Debian GNU/Linux, ask and we will try our best to answer it. Newcomers should read the channel's guidelines by typing "/msg dpkg guidelines". Please do not paste in the channel; use #flood instead. Thank you.
+2020-01-24 22:19:16	--	URL for #debian: http://www.debian.org
+2020-01-24 22:19:16	--	Channel created on Sat, 10 Feb 2001 00:16:24
+2020-01-24 22:19:18	mtcdood	giving up on msmtp
+2020-01-24 22:19:24	-->	OS-67484 (~OS-67484@73.129.149.255) has joined #debian
+2020-01-24 22:19:30	<--	chris06 (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has left #debian
+2020-01-24 22:27:57	-->	chris06 (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #debian
+2020-01-24 22:27:57	--	Topic for #debian is "Current Debian release is buster, 10.2 point release /msg dpkg 10.2; /msg dpkg buster; /msg dpkg stretch->buster; /msg dpkg apt suite changed | Oldstable Stretch: /msg dpkg stretch; /msg dpkg 9.11; 9.11 needs dist-upgrade | NO FLOOD: /msg dpkg paste | offtopic: #debian-offtopic | testing/unstable: #debian-next @ irc.oftc.net | chanlogs: /msg dpkg irclog"
+2020-01-24 22:27:57	--	Topic set by somiaj (~jaimos@unaffiliated/somiaj) on Tue, 19 Nov 2019 01:01:10
+2020-01-24 22:27:57	--	Channel #debian: 1540 nicks (2 ops, 0 voices, 1538 normals)
+2020-01-24 22:27:57	--	PvNotice(ChanServ): Welcome to #Debian. This is a discussion channel; if you have a question about Debian GNU/Linux, ask and we will try our best to answer it. Newcomers should read the channel's guidelines by typing "/msg dpkg guidelines". Please do not paste in the channel; use #flood instead. Thank you.
+2020-01-24 22:27:57	--	URL for #debian: http://www.debian.org
+2020-01-24 22:27:59	--	Channel created on Sat, 10 Feb 2001 00:16:24
+2020-01-24 22:28:10	<--	elfatherbrown (~elfatherb@200.68.176.195) has quit (Ping timeout: 240 seconds)
+2020-01-24 22:29:35	<--	bhoman (~quassel@pool-108-35-122-201.nwrknj.fios.verizon.net) has quit (Read error: Connection reset by peer)
+2020-01-24 22:29:54	-->	bhoman (~quassel@pool-108-35-122-201.nwrknj.fios.verizon.net) has joined #debian
+2020-01-24 22:30:22	mtcdood	yes, I am
+2020-01-24 22:30:47	mtcdood	they specifically say they're not going to relay for that email address
+2020-01-24 22:31:41	<--	clixkhouse (~androirc@89-83-167-245.abo.bbox.fr) has quit (Read error: Connection reset by peer)
+2020-01-24 22:32:26	-->	jmarion (~jmarion@unaffiliated/jmarion) has joined #debian
+2020-01-24 22:33:02	jhutchins_wk	jsync2: Ot
+2020-01-24 22:33:13	<--	eh_hawk (~ehhawk@ool-18bbef1a.static.optonline.net) has quit (Quit: Ciao)
+2020-01-24 22:33:19	<--	dgallant0 (~dgallant@CPE98dac4988f09-CMbc4dfbbc35d0.cpe.net.fido.ca) has quit (Ping timeout: 265 seconds)
+2020-01-24 22:33:26	<--	towo` (~towo@unaffiliated/towo/x-4064351) has quit (Quit: Leaving)
+2020-01-24 22:33:28	jhutchins_wk	jsync2: It's not like I've memorized it.  In the 90's I used that to build SOHO routers and internet dialers.
+2020-01-24 22:33:44	-->	dgallant0 (~dgallant@fitz10681.telemetry.esentire.com) has joined #debian
+2020-01-24 22:34:35	-->	pancho (~pancho@nag77-2-83-152-154-106.fbx.proxad.net) has joined #debian
+2020-01-24 22:34:40	mtcdood	"From: <mtcdood@deb1020ts.mtcdood.me> to: <mtcdood@deb1020ts.mtcdood.me>"
+2020-01-24 22:34:45	mtcdood	it literally ignores its own configuration
+2020-01-24 22:35:09	mtcdood	 /etc/nullmailer/defaultdomain does not contain that host part
+2020-01-24 22:35:22	<--	soee (~soee@192.166.255.245) has quit (Ping timeout: 240 seconds)
+2020-01-24 22:35:58	jsync2	Aha.
+2020-01-24 22:36:12	mtcdood	nor does /etc/adminaddr
+2020-01-24 22:36:39	-->	Peyam (~maroufi@c83-250-236-236.bredband.comhem.se) has joined #debian
+2020-01-24 22:37:30	<--	TorpedoSkyline (~TorpedoSk@unaffiliated/torpedoskyline) has quit (Quit: My MacBook has gone to sleep. ZZZzzz?)
+2020-01-24 22:37:30	<--	lcabrera___ (~desarroll@static-237-241-26-46.ipcom.comunitel.net) has quit (Read error: Connection reset by peer)
+2020-01-24 22:37:59	-->	lcabrera___ (~desarroll@static-237-241-26-46.ipcom.comunitel.net) has joined #debian

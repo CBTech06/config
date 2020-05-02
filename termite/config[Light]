@@ -1,0 +1,36 @@
+[options]
+allow_bold = false 
+font =  SauceCodePro Nerd Font 11
+
+[colors]
+# special
+foreground      = #2e3333
+foreground_bold = #2e3333
+cursor          = #2e3333
+background      = #eeeeee
+
+# Black
+color0  = #e2e2e2
+color8  = #dca3c2
+# Red
+color1  = #658ac4
+color9  = #00caff
+# Green
+color2  = #7f0076
+color10 = #268e9d
+# Yellow
+color3  = #44453e
+color11 = #aa98e5
+# Blue
+color4  = #929499
+color12 = #007898
+# Magenta
+color5  = #86887c
+color13 = #9f00c3
+# Cyan
+color6  = #007898
+color14 = #82b69f
+# White
+color7  = #e1e4d1
+color15 = #007898
+

@@ -1,0 +1,404 @@
+2020-01-26 20:50:42	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-01-26 20:50:42	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-01-26 20:50:42	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-01-26 20:50:42	--	Channel #wxwidgets: 39 nicks (0 ops, 0 voices, 39 normals)
+2020-01-26 20:50:44	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-01-26 20:50:45	captainchris	hello 
+2020-01-26 21:00:20	 *	specing rings bell
+2020-01-26 21:00:31	specing	captainchris: ICEBERG ON THE STARBOARD SIDE!
+2020-01-26 21:01:15	captainchris	oh yeah fuck me 
+2020-01-26 21:01:30	captainchris	with your iceberg
+2020-01-26 21:15:09	specing	:)
+2020-01-26 22:21:32	-->	darkbit_ (~darkbit@152.32.100.37) has joined #wxwidgets
+2020-03-23 22:20:10	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-03-23 22:20:10	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-03-23 22:20:10	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-03-23 22:20:10	--	Channel #wxwidgets: 39 nicks (0 ops, 0 voices, 39 normals)
+2020-03-23 22:20:12	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-03-23 22:20:18	captainchris	hi everybody
+2020-03-23 22:21:20	captainchris	I'm new on wxwidgets I'm trying to code hello world from the wxwidget site 
+2020-03-23 22:21:46	captainchris	I have GUI but I don't have menu and statusbar 
+2020-03-23 22:21:53	captainchris	I paste my code 
+2020-03-23 22:22:02	captainchris	https://pastebin.com/250WsSiY
+2020-03-23 22:22:09	captainchris	Header file 
+2020-03-23 22:22:19	captainchris	https://pastebin.com/iEyWTtmk
+2020-03-23 22:22:24	captainchris	CPP file
+2020-03-23 22:23:15	captainchris	do you have an idea ?? 
+2020-03-23 22:25:46	DavidGH	captainchris: Caused by your OS or theme not liking *bars?
+2020-03-23 22:26:44	DavidGH	What happens if you build wx yourself and build/run the 'minimal' sample?
+2020-03-23 22:26:44	DavidGH	(Or, if your OS provides binaries of the samples, run it direct)
+2020-03-23 22:28:19	captainchris	I have i3WM
+2020-03-23 22:29:12	captainchris	but I must have to menufile 
+2020-03-23 22:29:35	captainchris	I'm going to add text label on my wxframe
+2020-03-23 22:30:39	specing	captainchris: why wx?
+2020-03-23 22:30:49	DavidGH	I've never used i3WM. Do other similar programs have bars?
+2020-03-23 22:31:14	captainchris	no I havge no titlebar 
+2020-03-23 22:31:26	captainchris	but i have menubar in other application 
+2020-03-23 22:31:39	DavidGH	OK
+2020-03-23 22:35:40	captainchris	I'm trying to add a button to my frame 
+2020-03-23 22:35:51	captainchris	and I look if it works
+2020-03-23 22:56:56	<--	_zxq9_ (~zxq9@FL1-119-244-160-177.okn.mesh.ad.jp) has quit (Quit: バイバイ！ (^_^)/~)
+2020-03-23 23:02:24	captainchris	I have a problem with my button  undefined reference to `wxControl::SetFont(wxFont const&)'
+2020-03-23 23:02:50	captainchris	If i disable constructor for my button I don't have error
+2020-03-23 23:06:02	DavidGH	Have you updated the pastebins with the button code?
+2020-03-23 23:06:16	captainchris	 nope 
+2020-03-23 23:06:29	captainchris	I'm doing it 
+2020-03-23 23:08:03	captainchris	https://pastebin.com/UDHFmJD5
+2020-03-23 23:08:27	captainchris	I tried with wxT("Quit")
+2020-03-23 23:08:31	captainchris	but same problem 
+2020-03-23 23:13:01	DavidGH	You seem to be trying to derive your Button class from wxFrame
+2020-03-23 23:13:31	DavidGH	why not from wxButton, if indeed you need a subclassed button at all?
+2020-03-23 23:14:34	DavidGH	I strongly suggest that you download the wxWidgets tarball (probably the latest stable, 3.0.4) and at least _look_ at the samples/ dir
+2020-03-23 23:15:00	DavidGH	Ideally build wx3.0.4 too. Then you can build and run any of the samples
+2020-03-23 23:16:04	captainchris	I'm on arch and i have the wxgtk3 3.0.4-2
+2020-03-23 23:18:06	DavidGH	Does it come with a samples package, or supply the samples in some other way?
+2020-03-23 23:19:12	DavidGH	If not, it's still worth downloading the tarball. You can probably configure/build the samples against your distro's wx
+2020-03-23 23:20:54	captainchris	I have sample ont github 
+2020-03-23 23:21:41	captainchris	on zetcode class inherite from wxFrame 
+2020-03-23 23:21:46	captainchris	http://zetcode.com/gui/wxwidgets/firstprograms/
+2020-03-23 23:27:50	DavidGH	That sample calls its subclassed wxFrame 'Button' (which is silly, but...)
+2020-03-23 23:28:31	DavidGH	but it's still a frame. It adds a wxButton later:
+2020-03-23 23:28:37	DavidGH	wxButton *button = new wxButton(panel, wxID_EXIT, wxT("Quit"),   wxPoint(20, 20));
+2020-03-23 23:29:39	DavidGH	All you need to do is to put that code line, and other relevant ones, into your original tutorial code
+2020-03-23 23:30:04	captainchris	iin my wxFrame implementation ?? 
+2020-03-23 23:30:18	 *	DavidGH still recommends the wx samples, which are _known_ to work
+2020-03-23 23:30:36	DavidGH	Into the original code you pastebinned
+2020-03-23 23:31:33	DavidGH	You need a frame class, derived from wxFrame. You add other things inside the frame constructor
+2020-03-23 23:31:53	DavidGH	Those other things can include a wxButton, which you _don't_ subclass
+2020-03-23 23:32:13	DavidGH	(unless you think you can design a better button than wx/gtk+)
+2020-03-23 23:36:39	specing	captainchris: why are you using wxwidgets and not gtk directly?
+2020-03-23 23:37:23	captainchris	why wxwidget is bad ??
+2020-03-23 23:38:05	specing	I'm not implying that
+2020-03-23 23:38:08	specing	I'm just asking
+2020-03-23 23:38:37	captainchris	everybody says wxwidget is better
+2020-03-23 23:40:21	specing	I've done some work maintaining a wxwidgets app. While the API is stable over a very long time, the problem is that some things are very hard to do. Such as theming (that modern users expect)
+2020-03-23 23:41:27	captainchris	It's my first time with GUI I code with sfml and I would create a tilemap editor to improve my skill 
+2020-03-23 23:41:47	captainchris	I choice wxwidget after a search on internet
+2020-03-23 23:42:43	captainchris	my first choice was fltk  and after i decided to change for wxwidget 
+2020-03-23 23:54:24	captainchris	Ok I ve found the solution 
+2020-03-24 00:05:30	captainchris	on my makefile I build my project with wx-config-gtk3 on CXXFLAGS and I missed on LIBS
+2020-03-24 00:05:47	captainchris	I used wx-config
+2020-03-24 00:06:53	captainchris	and I have menubar and statusbar :(
+2020-03-24 00:07:09	captainchris	I'm really stupid. thx for your help 
+2020-03-24 18:09:03	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-03-24 18:09:03	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-03-24 18:09:03	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-03-24 18:09:03	--	Channel #wxwidgets: 42 nicks (0 ops, 0 voices, 42 normals)
+2020-03-24 18:09:05	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-03-24 18:09:10	captainchris	hi everybody 
+2020-03-24 18:26:31	captainchris	I would like to create a tile map editor 
+2020-03-24 18:26:57	captainchris	what is the best widget to show the tile ?? 
+2020-03-24 18:27:01	captainchris	wxImage ?
+2020-03-24 18:53:13	-->	Iarfen (~quassel@181.43.131.144) has joined #wxwidgets
+2020-03-24 19:50:26	robert_	okay, this is weird
+2020-03-24 19:51:18	robert_	drawing a rectangle (dc.DrawRectangle(m_pos.x, m_pos.y, width(), height())) draws it larger than DrawLine thinks it is
+2020-03-24 19:52:40	<--	Iarfen (~quassel@181.43.131.144) has quit (Remote host closed the connection)
+2020-03-24 19:54:54	robert_	drawing a rectangle (dc.DrawRectangle(m_pos.x, m_pos.y, width(), height())) draws it larger than DrawLine thinks it is
+2020-03-24 19:54:55	robert_	er
+2020-03-24 20:00:05	robert_	oh
+2020-03-24 20:00:13	robert_	that explains it. nevermind. :D
+2020-03-24 21:00:58	captainchris	I need to create 2d tilemap editor what is the best control to show and edit map wxImage  
+2020-03-24 21:09:13	captainchris	wxGrid??
+2020-03-24 21:15:18	DavidGH	captainchris: I've no knowledge/experience of tilemap editors, but I doubt that wxGrid is what you want
+2020-03-24 21:16:38	captainchris	Hi david yes. but i don't know if wxImage is the good solution 
+2020-03-24 21:16:39	DavidGH	If you want images in a grid pattern, wxStaticBitmaps in a gridsizer sounds more likely
+2020-03-24 21:21:16	captainchris	I think I will use a panel like image panel on the wxwiki 
+2020-03-24 22:47:41	robert_	so hum, how do I use a FlexGridSizer? like how do I specify what row/column it's in?
+2020-03-24 22:47:55	robert_	(sorry, for example, a Static text control)
+2020-03-24 23:12:01	-->	SimoneCnt (47e9f57e@unaffiliated/simonecnt) has joined #wxwidgets
+2020-03-24 23:14:47	DavidGH	robert_: If you grep the samples/ dir you'll find lots of examples
+2020-03-24 23:14:54	DavidGH	One is the dnd sample
+2020-03-24 23:15:10	SimoneCnt	Hello, I created a wxRichTextCtrl to display some data. The code works fine, but on MacOS I cannot select the displayed data and copy them to the clipboard. On Linux it works fine. It is a bug on MacOS or I am missing something?
+2020-03-24 23:16:42	captainchris	ok bye everybody
+2020-03-24 23:16:52	captainchris	see on 2021 ;)
+2020-03-25 15:46:11	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-03-25 15:46:11	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-03-25 15:46:11	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-03-25 15:46:11	--	Channel #wxwidgets: 45 nicks (0 ops, 0 voices, 45 normals)
+2020-03-25 15:46:13	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-03-25 15:46:17	captainchris	hey 
+2020-03-25 15:52:56	captainchris	Hi have GUI with wxframe 
+2020-03-25 15:53:55	captainchris	with size 1024x1280. I added a wxpanel with colour red 50,50. the problem is the wxpanel fill all window in red 
+2020-03-25 15:54:04	captainchris	and not a box 50,50
+2020-03-25 15:54:34	captainchris	https://pastebin.com/t45wzVuk
+2020-03-25 15:55:13	specing	captainchris: use a sizer and fill the rest of the space with fillers
+2020-03-25 16:11:50	captainchris	ok
+2020-03-25 16:28:57	robert_	hum
+2020-03-25 16:29:19	robert_	so dragging my window around my canvas gives me interesting results
+2020-03-25 16:30:05	robert_	the rectangle it thinks is the available area shrinks if it I drag it toward the bottom of my canvas
+2020-03-25 16:30:43	<--	Haohmaru (~Haohmaru@195.24.53.110) has quit
+2020-03-25 16:30:54	robert_	oh
+2020-03-25 16:30:58	robert_	fixed it. :D
+2020-03-25 16:44:03	<--	YuGiOhJCJ (~YuGiOhJCJ@gateway/tor-sasl/yugiohjcj) has quit (Quit: YuGiOhJCJ)
+2020-03-25 16:44:24	robert_	or not
+2020-03-25 16:44:26	robert_	partly
+2020-03-25 17:33:39	<--	Elirips (~Elirips@242.109.22.178.ftth.as8758.net) has quit (Quit: KVIrc 5.0.0 Aria http://www.kvirc.net/)
+2020-03-25 17:39:52	captainchris	I downloaded wxwidgets it is possible to build only samples ?? 
+2020-03-25 18:05:23	DavidGH	captainchris: You need to run ./configure in the (extracted tarball) wx dir, using similar options to those of your system's wx install
+2020-03-25 18:05:55	DavidGH	e.g. ./configure --with-gtk=3
+2020-03-25 18:06:28	DavidGH	Then you should be able to cd into samples/ and run make -j to build them all,
+2020-03-25 18:07:02	DavidGH	or e.g. cd samples/minimal && make   to build just that sample
+2020-03-25 18:34:11	robert_	so can I justify text with wx?
+2020-03-25 18:34:30	robert_	like how it appears in a book, nice and aligned
+2020-03-25 18:35:49	robert_	or 'text-align: justify' (in css)
+2020-03-25 18:38:49	captainchris	.david thanks
+2020-03-25 18:40:59	DavidGH	robert_: Inside which control? e.g. are you using wxRichTextCtrl, or wxHtml* or...
+2020-03-25 18:42:37	robert_	Any control, I I need a text label to be justified.
+2020-03-25 18:43:54	robert_	I am asking if it's easy enough to accomplish using something not html
+2020-03-25 18:44:41	DavidGH	As you'd have seen from its doc page, wxStaticText supports e.g. wxALIGN_LEFT, but it doesn't pretend to be a richtext control
+2020-03-25 18:45:16	DavidGH	OTOH wxRichTextCtrl is a bit over-the-top for a simple label
+2020-03-25 18:46:15	robert_	yeah
+2020-03-25 18:47:08	DavidGH	As ever, run some relevant wx samples and see what suits you
+2020-03-25 18:52:53	robert_	am, was just wondering if you had anything that came to mind. :D
+2020-03-25 18:53:26	robert_	anyway https://i2.wp.com/justinakapaste.com/wp-content/uploads/2014/11/tumblr_n03c59E4SK1trn8dmo4_500.jpg, kind of like this, lol
+2020-03-25 19:17:19	DavidGH	robert_: Which of the jpg files were you thinking of?
+2020-03-25 19:17:42	DavidGH	s/files/fields
+2020-03-25 19:27:47	robert_	the text up top; it should justify if it wraps more than one line
+2020-03-25 19:32:54	DavidGH	If you're using wx3.1 wxStaticText supports https://docs.wxwidgets.org/trunk/classwx_control.html#afeb308dc3b54d8d735b33cb250395503
+2020-03-25 19:33:08	DavidGH	Otherwise probably a read-only wxTextCtrl
+2020-03-25 19:35:21	robert_	yeah I'm using 3.x
+2020-03-25 19:39:13	robert_	I just want a label that applies justification like in a book, lol
+2020-03-25 19:58:04	-->	Human_G33k (~HumanG33k@62.147.242.8) has joined #wxwidgets
+2020-03-25 20:06:05	<--	iRET (sid422602@gateway/web/irccloud.com/x-luppgwecarlcmwcz) has quit (Excess Flood)
+2020-03-25 20:06:27	-->	iRET (sid422602@gateway/web/irccloud.com/x-bottzwqmlshxeaea) has joined #wxwidgets
+2020-03-25 20:22:13	DavidGH	I think you'll find that 3.x isn't good enough; it includes 3.0.* but you'd need 3.1.*
+2020-03-25 20:34:15	<--	Human_G33k (~HumanG33k@62.147.242.8) has quit (Remote host closed the connection)
+2020-03-25 20:34:29	-->	Human_G33k (~HumanG33k@62.147.242.8) has joined #wxwidgets
+2020-03-25 21:12:06	-->	Galactica (~UserNick@139.red-83-54-120.dynamicip.rima-tde.net) has joined #wxwidgets
+2020-03-25 21:13:47	<--	PeRy_SoY (~UserNick@139.red-83-54-120.dynamicip.rima-tde.net) has quit (Ping timeout: 264 seconds)
+2020-03-26 20:31:18	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-03-26 20:31:18	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-03-26 20:31:18	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-03-26 20:31:18	--	Channel #wxwidgets: 41 nicks (0 ops, 0 voices, 41 normals)
+2020-03-26 20:31:20	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-03-26 21:59:13	captainchris	Can i set position and size with wxpanel  ??
+2020-03-26 21:59:42	captainchris	I try to put in wxboxsizer but I can't set position
+2020-03-26 22:00:40	specing	the sizer is there specifically so you don't have to deal with positions
+2020-03-26 22:01:37	captainchris	ok 
+2020-03-26 22:02:12	captainchris	I need to realize a tilemap editor
+2020-03-26 22:02:36	captainchris	and I need a panel to put my tile inside at position 500,700
+2020-03-26 22:05:11	specing	we've all got work to do
+2020-03-26 22:06:42	captainchris	OK you don't want to help me
+2020-03-26 22:06:44	captainchris	thx
+2020-03-26 22:07:56	specing	play around, and once you have a specific question you can ask
+2020-03-26 22:08:08	specing	this isn't paid support, you'll have to sign up separately for that
+2020-03-26 22:09:00	captainchris	please don't disturb me if you don't want to help me 
+2020-03-26 22:09:02	captainchris	I'm working 
+2020-03-26 22:16:57	specing	Haha
+2020-03-26 22:18:15	<--	Echoes (sid422602@gateway/web/irccloud.com/x-tfunezjbwcskpfle) has quit (Excess Flood)
+2020-03-26 22:18:37	-->	Echoes (sid422602@gateway/web/irccloud.com/x-lwnowmlcuhyutbuo) has joined #wxwidgets
+2020-03-26 22:29:29	captainchris	;)
+2020-03-26 22:29:40	captainchris	I'm laugh specing
+2020-03-26 22:29:46	captainchris	laughing 
+2020-03-26 22:30:02	captainchris	<3
+2020-03-26 22:33:27	captainchris	specing: 
+2020-03-26 22:33:41	captainchris	don't cry
+2020-03-26 22:33:47	captainchris	I love you 
+2020-03-26 22:34:06	captainchris	will you marry me ?? 
+2020-03-26 22:45:50	captainchris	I will be the mand and you'll be my women
+2020-03-26 22:45:53	captainchris	men 
+2020-03-26 22:49:59	DavidGH	captainchris: Please stay on topic
+2020-03-26 22:52:10	captainchris	sorry ;(
+2020-03-26 22:52:40	captainchris	DavidGH: <3
+2020-03-26 22:56:37	captainchris	BAN ME ild vicious 
+2020-03-26 22:56:46	captainchris	old vicious
+2020-03-26 23:20:25	-->	Auria (~Instantbi@supertuxkart/dev/Auria) has joined #wxwidgets
+2020-03-30 20:50:19	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-03-30 20:50:19	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-03-30 20:50:19	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-03-30 20:50:19	--	Channel #wxwidgets: 39 nicks (0 ops, 0 voices, 39 normals)
+2020-03-30 20:50:21	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-03-30 21:13:47	-->	Elirips (~Elirips@84-72-42-3.dclient.hispeed.ch) has joined #wxwidgets
+2020-03-30 21:22:49	<--	Elirips (~Elirips@84-72-42-3.dclient.hispeed.ch) has quit (Quit: KVIrc 4.2.0 Equilibrium http://www.kvirc.net/)
+2020-03-30 21:58:02	robert_	DavidGH: I snipped it down to just the class I'm having issues with. :D
+2020-03-30 22:09:18	DavidGH	You are trying to catch mouseevents in a wxPanel. Does the panel have any child controls?
+2020-03-30 22:09:39	DavidGH	If so, they won't tell the panel about their mouseevents
+2020-03-30 22:10:41	DavidGH	Does OnMouseEvent() catch anything? You're only printing if dragging is found, not if it isn't
+2020-03-30 22:12:37	DavidGH	A general comment: you are starting with something complicated and trying to get it to work.
+2020-03-30 22:13:48	DavidGH	I strongly suggest that you keep it simple; make a minimal program that just tests mouse events,
+2020-03-30 22:13:48	DavidGH	not something that resembles the final product
+2020-03-30 22:14:10	DavidGH	Once it works, morph it into what you really want
+2020-03-30 22:25:27	robert_	okay
+2020-03-30 22:25:53	robert_	so it catches events
+2020-03-30 22:25:54	robert_	however
+2020-03-30 22:26:07	robert_	I get no events when trying to drag the button around
+2020-03-30 22:31:22	DavidGH	Maybe the button is receiving the events. If so, the panel won't see them
+2020-03-30 22:31:58	DavidGH	You would need to tell the button to pass them on to the panel e.g. by using Bind()
+2020-03-30 22:37:08	robert_	I handle both, though
+2020-03-30 22:38:08	robert_	instance is the button
+2020-03-30 22:42:09	robert_	hmmm
+2020-04-15 22:29:14	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-04-15 22:29:14	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-15 22:29:14	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-15 22:29:14	--	Channel #wxwidgets: 42 nicks (0 ops, 0 voices, 42 normals)
+2020-04-15 22:29:15	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-15 22:29:17	captainchris	hi everybody 
+2020-04-15 22:29:27	captainchris	I'm trying to add icon in list view 
+2020-04-15 22:29:38	captainchris	https://pastebin.com/QDnKK5Au
+2020-04-15 22:29:45	captainchris	But I have an error 
+2020-04-15 22:31:34	captainchris	sorry I have found 
+2020-04-22 21:13:53	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-04-22 21:13:53	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-22 21:13:53	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-22 21:13:53	--	Channel #wxwidgets: 45 nicks (0 ops, 0 voices, 45 normals)
+2020-04-22 21:13:56	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-22 21:13:57	captainchris	hi everybody 
+2020-04-22 21:15:45	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-04-22 21:15:46	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-22 21:15:46	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-22 21:15:46	--	Channel #wxwidgets: 45 nicks (0 ops, 0 voices, 45 normals)
+2020-04-22 21:15:47	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-22 21:34:12	captainchris	It is possible to draw with dc in wxframe with multiple panel
+2020-04-22 21:34:18	captainchris	https://pastebin.com/Zhh7Y6RX
+2020-04-22 21:34:30	captainchris	I made this but it doesn't work 
+2020-04-22 21:34:37	captainchris	https://pastebin.com/VtB36jHA
+2020-04-22 21:34:49	captainchris	I have my text drawn 
+2020-04-22 21:34:56	captainchris	but all interface doesn't appear 
+2020-04-22 21:39:51	captainchris	can we draw with dc without event table ??
+2020-04-22 21:40:37	captainchris	I'm reading doc and it says But this absolutely doesn't mean that using tables is the preferred way 
+2020-04-22 21:54:06	ln-	no, there should be only one panel
+2020-04-22 22:11:27	captainchris	ok 
+2020-04-22 22:11:46	captainchris	I would like to realize tilemap editor 
+2020-04-22 22:12:04	captainchris	to draw map can I use wxScrolledwindows ?? 
+2020-04-22 22:21:25	ln-	wxPaintDC inside a wxScrolledWindow probably
+2020-04-22 22:30:29	<--	paulk2 (~paulk@50.35.23.102) has quit (Ping timeout: 256 seconds)
+2020-04-22 22:55:26	-->	paulk2 (~paulk@50.35.23.102) has joined #wxwidgets
+2020-04-22 22:59:08	captainchris	ln- scrolled window inside paintDC, but the constructor of paintDC(wxWindow *window)
+2020-04-22 22:59:42	captainchris	sorry invert, paintDC inside scrolledwindows
+2020-04-23 11:30:13	-->	captainchris (~captainch@2a01:cb1d:342:4200:d0c2:2f:4ca:12b) has joined #wxwidgets
+2020-04-23 11:30:13	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-23 11:30:13	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-23 11:30:13	--	Channel #wxwidgets: 44 nicks (0 ops, 0 voices, 44 normals)
+2020-04-23 11:30:15	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-23 11:30:15	captainchris	hello 
+2020-04-23 11:30:40	captainchris	can i Use wxscrolledwindows without class 
+2020-04-23 11:31:07	captainchris	I have a GUI class who inherite wxFrame I want a scrolled window inside of it 
+2020-04-23 11:33:25	DavidGH	captainchris: Do you mean "...without subclassing"?
+2020-04-23 11:34:00	captainchris	yes like class GUI: public wxFrame 
+2020-04-23 11:34:28	captainchris	{ wxScrolledWindow* scrolledwin ....
+2020-04-23 11:34:43	DavidGH	See the samples that come with the wxWidgets source.
+2020-04-23 11:35:46	DavidGH	There's the 'propgrid' sample that certainly does. There's also a 'scoll' sample that you should look at.
+2020-04-23 11:36:16	DavidGH	*'scroll' sample
+2020-04-23 11:36:56	captainchris	ok I see dnd sample and all use wxscrolledwindow inherited 
+2020-04-23 11:37:42	DavidGH	^^
+2020-04-23 11:38:13	captainchris	simple question 
+2020-04-23 11:38:28	DavidGH	m_panel = new wxScrolledWindow(...)
+2020-04-23 11:38:37	captainchris	do you think it's possible to code without sample just to use api??
+2020-04-23 11:39:10	DavidGH	'code without sample' ??
+2020-04-23 11:39:21	captainchris	yes 
+2020-04-23 11:39:30	DavidGH	What does that mean?
+2020-04-23 11:39:49	captainchris	programming application without sample just with api 
+2020-04-23 11:40:16	DavidGH	I don't understand what you mean by 'sample'
+2020-04-23 11:40:50	DavidGH	The wxWidgets samples, that are there to help you understand how to do things?
+2020-04-23 11:41:17	captainchris	yes but do you think we programming without ??
+2020-04-23 11:41:33	captainchris	just with API documentation
+2020-04-23 11:41:33	<--	HumanGeek (~HumanG33k@62.147.242.8) has quit (Remote host closed the connection)
+2020-04-23 11:42:17	DavidGH	So your question is: "Why do you suggest looking at the wx samples?"
+2020-04-23 11:42:28	-->	HumanGeek (~HumanG33k@62.147.242.8) has joined #wxwidgets
+2020-04-23 11:42:42	DavidGH	Yes, it's _possible_ to use just the docs
+2020-04-23 11:42:50	captainchris	ok 
+2020-04-23 11:43:15	DavidGH	But! If that fails, if you read the docs but they don't answer your questions,
+2020-04-23 11:43:25	DavidGH	then look at the samples
+2020-04-23 11:44:06	DavidGH	Build the relevant samples too, and run them
+2020-04-23 11:44:30	DavidGH	That way you can see what wxWidgets can do
+2020-04-23 11:44:58	captainchris	yes 
+2020-04-23 12:58:45	captainchris	It's very difficult for me because I'm french and my english is not very good ;)
+2020-04-23 13:58:27	-->	KAHR-Alpha (~Alpha@lfbn-rei-1-228-93.w86-225.abo.wanadoo.fr) has joined #wxwidgets
+2020-04-23 22:03:24	-->	captainchris (~captainch@2a01:cb1d:342:4200:b3eb:7c30:215c:d58d) has joined #wxwidgets
+2020-04-23 22:03:24	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-23 22:03:24	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-23 22:03:24	--	Channel #wxwidgets: 42 nicks (0 ops, 0 voices, 42 normals)
+2020-04-23 22:03:26	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-23 22:03:34	captainchris	Hello
+2020-04-23 22:03:41	captainchris	i have a question 
+2020-04-23 22:04:20	captainchris	in zetcode wxwidget tutorial , they use Connect(wxEVT_MOVE,wxMoveEventHandler(Move::OnMove));
+2020-04-23 22:04:22	-->	fdelapena (~fdelapena@unaffiliated/fdelapena) has joined #wxwidgets
+2020-04-23 22:06:20	captainchris	I'm on API of wxwidget wxEVTHandler and the two connect
+2020-04-23 22:06:23	captainchris	https://pastebin.com/z9HMbJbX
+2020-04-24 13:25:21	-->	captainchris (~captainch@2a01:cb1d:342:4200:b3eb:7c30:215c:d58d) has joined #wxwidgets
+2020-04-24 13:25:21	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-24 13:25:21	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-24 13:25:21	--	Channel #wxwidgets: 40 nicks (0 ops, 0 voices, 40 normals)
+2020-04-24 13:25:23	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-24 13:37:07	captainchris	I created a wxClientDC it works but it draw my img outside my window
+2020-04-24 13:37:12	captainchris	https://gist.github.com/captainchris06210/b0327e6a52e71c3b16cb143acc9cf321
+2020-04-24 13:37:47	captainchris	I took example on sample 
+2020-04-24 13:41:31	DavidGH	captainchris: If you use a wxScrolledWindow, you need to account for the scroll position somehow
+2020-04-24 13:41:38	DavidGH	AFAICT, you don't do that
+2020-04-24 13:41:59	DavidGH	Look again at the 'scroll' sample to see how that does it
+2020-04-24 13:42:20	captainchris	I didn't take the good sample sorry 
+2020-04-24 13:42:29	captainchris	I took docview 
+2020-04-24 13:45:42	captainchris	I understand nothing. On the doc it says Don't store a wxClientDC object 
+2020-04-24 13:48:43	DavidGH	That's right. And the way you did it in the code you pastebinned is correct
+2020-04-24 13:49:39	captainchris	;) One day, I will be a good programmer 
+2020-04-24 13:49:49	captainchris	one day maybe  ... 
+2020-04-24 18:46:51	-->	captainchris (~captainch@2a01:cb1d:342:4200:b3eb:7c30:215c:d58d) has joined #wxwidgets
+2020-04-24 18:46:51	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-24 18:46:51	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-24 18:46:51	--	Channel #wxwidgets: 42 nicks (0 ops, 0 voices, 42 normals)
+2020-04-24 18:46:53	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-24 21:39:04	-->	lihora (~lio@201-51-50-99.user3p.veloxzone.com.br) has joined #wxwidgets
+2020-04-24 22:00:05	<--	fdelapena (~fdelapena@unaffiliated/fdelapena) has quit (Quit: "")
+2020-04-24 22:01:41	-->	fdelapena (~fdelapena@unaffiliated/fdelapena) has joined #wxwidgets
+2020-04-24 22:03:27	-->	Kuukunen (~qq@kuukunen.net) has joined #wxwidgets
+2020-04-24 22:13:57	-->	ibrahiah (25c9b86d@37.201.184.109) has joined #wxwidgets
+2020-04-24 22:25:23	<--	ibrahiah (25c9b86d@37.201.184.109) has quit (Remote host closed the connection)
+2020-04-25 21:10:34	-->	captainchris (~captainch@2a01:cb1d:342:4200:b3eb:7c30:215c:d58d) has joined #wxwidgets
+2020-04-25 21:10:34	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.0.7) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-25 21:10:34	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 28 Oct 2019 19:31:03
+2020-04-25 21:10:34	--	Channel #wxwidgets: 44 nicks (0 ops, 0 voices, 44 normals)
+2020-04-25 21:10:36	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-25 21:10:37	captainchris	hello
+2020-04-25 21:15:03	captainchris	I have a question 
+2020-04-25 21:15:17	captainchris	I made this :  Bind(wxEVT_COMMAND_MENU_SELECTED,&GUI::OnQuit,wxID_EXIT,wxID_ANY,this);
+2020-04-25 21:16:37	captainchris	And gcc tells me no matching function for call to ‘GUI::Bind(const wxEventTypeTag<wxCommandEvent>&, void (GUI::*)(wxCommandEvent&), wxStandardID, GUI*)
+2020-04-25 21:20:43	DavidGH	captainchris: Which Bind() function are you trying to use?
+2020-04-25 21:20:43	DavidGH	https://docs.wxwidgets.org/stable/classwx_evt_handler.html#a0f30c8fa5583b4a5f661897d63de3b62 or
+2020-04-25 21:20:43	DavidGH	https://docs.wxwidgets.org/stable/classwx_evt_handler.html#a03cc68ca201fb79c7e837919025be71a
+2020-04-25 21:36:05	captainchris	the second
+2020-04-25 21:37:42	DavidGH	Bind (const EventTag &eventType, void(Class::*method)(EventArg &), EventHandler *handler, int id=wxID_ANY, int lastId=wxID_ANY, wxObject *userData=NULL)
+2020-04-25 21:37:42	DavidGH	So the first parameter, eventType, is wxEVT_COMMAND_MENU_SELECTED. That's fine
+2020-04-25 21:40:55	captainchris	I see that on doc
+2020-04-25 21:40:58	DavidGH	The second parameter, Class::*method, &GUI::OnQuit, is OK too. What about the third?
+2020-04-25 21:40:58	captainchris	Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
+2020-04-25 21:41:10	captainchris	but why wxID_EXIT on the end ?? 
+2020-04-25 21:42:08	DavidGH	You could use wxID_ANY (which is -1) for both event-ids if you wanted. But you actually only want to bind exit events
+2020-04-25 21:42:12	captainchris	I do that  Bind(wxEVT_COMMAND_MENU_SELECTED,&GUI::OnQuit,this,wxID_EXIT);
+2020-04-25 21:42:30	DavidGH	So you tell the Bind() to ignore anything that is not wxID_EXIT
+2020-04-25 21:42:34	captainchris	wxID_EXIT is int id 
+2020-04-25 21:42:39	DavidGH	Yes
+2020-04-25 21:43:49	captainchris	I've lo'ts of difficult to read API 
+2020-04-25 21:43:53	DavidGH	The 5th parameter is only used if you need to catch a _range_ of events. The 6th is almost never used so don't worry about it
+2020-04-25 21:44:04	DavidGH	Yes, Bind() is difficult
+2020-04-25 21:44:39	DavidGH	Examples are much easier, though. The wx samples were written before Bind() was invented
+2020-04-25 21:44:54	DavidGH	but it is used in one of them
+2020-04-25 21:46:41	captainchris	Yes it uses connect 
+2020-04-25 21:46:52	captainchris	and i saw on the doc connect is deprecated 
+2020-04-25 21:47:20	captainchris	I need to learning to read API 
+2020-04-25 21:52:16	-->	lihora (~lio@201-51-50-99.user3p.veloxzone.com.br) has joined #wxwidgets
+2020-04-25 21:53:08	<--	AntumDeluge (~AntumDelu@67-42-158-45.ptld.qwest.net) has quit (Read error: Connection reset by peer)
+2020-04-25 22:02:42	captainchris	I change my code
+2020-04-25 22:03:21	captainchris	But since this morning i search why my drawing appear below my panel 
+2020-04-25 22:03:24	captainchris	https://gist.github.com/captainchris06210/9bebaa491c22624e9ce4a49305d2a3ce
+2020-04-25 22:03:41	captainchris	if I don't use setbackgroundcolor I see my pictur
+2020-04-25 22:04:03	captainchris	and If i Setbackground it don't see my picture
+2020-04-25 22:04:26	captainchris	I'm trying with sample and the rectangle appear on blue background 
+2020-04-25 22:11:28	captainchris	I think it's beacause on drawing with wxPaintDC dc(this) and this is GUI and not my panel 
+2020-04-25 22:26:15	<--	paulk (~paulk@50.35.23.102) has quit (Ping timeout: 246 seconds)
+2020-04-25 22:26:34	<--	ZX-Spectrum (sid422602@gateway/web/irccloud.com/x-cccsmadiqurampqb) has quit (Excess Flood)
+2020-04-25 22:26:53	-->	ZX-Spectrum (sid422602@gateway/web/irccloud.com/x-qhqefevjhwxuoacr) has joined #wxwidgets
+2020-04-25 22:27:19	captainchris	I think I wll create an another class who inherite from wxScrolledwindow 
+2020-04-25 22:46:39	-->	delt (1000@64.18.186.124) has joined #wxwidgets
+2020-04-25 22:47:49	delt	so, just making sure..... wxApp::OnInit (), OnRun () and OnExit () HAVE to explicitly call the parent class method?
+2020-04-25 22:48:43	delt	ctors/dtors are called automatically, but id' have assumed there was a mechanism to avoid such blatant mistakes....
+2020-04-25 22:50:19	delt	ctor/dtor of parent classes** are called aut...
+2020-04-25 22:57:27	-->	paulk (~paulk@50.35.23.102) has joined #wxwidgets
+2020-04-25 23:54:54	<--	DavidGH (~DGH@host-78-150-8-43.as13285.net) has left #wxwidgets
+2020-04-28 11:42:31	-->	captainchris (~captainch@2a01:cb1d:342:4200:b3eb:7c30:215c:d58d) has joined #wxwidgets
+2020-04-28 11:42:31	--	Topic for #wxwidgets is "Cross-platform GUI Toolkit (current - v3.0.4, python - v4.1.0) || *Don't ask to ask, just ask* but please read http://wxwiki.org/IRC first || Long irc messages? http://pastebin.com/"
+2020-04-28 11:42:31	--	Topic set by DavidGH (~DGH@host-78-150-8-43.as13285.net) on Mon, 27 Apr 2020 19:10:19
+2020-04-28 11:42:31	--	Channel #wxwidgets: 45 nicks (0 ops, 0 voices, 45 normals)
+2020-04-28 11:42:34	--	Channel created on Sun, 26 Nov 2006 07:42:37
+2020-04-28 12:15:55	-->	ondrej008 (uid311009@gateway/web/irccloud.com/x-vzlqkjryvxqccavf) has joined #wxwidgets
+2020-04-28 13:04:23	<--	johonnyn (9b04a395@h-163-149.A498.priv.bahnhof.se) has quit (Remote host closed the connection)
+2020-04-28 13:04:52	-->	johonny (~johonny@h-163-149.A498.priv.bahnhof.se) has joined #wxwidgets
